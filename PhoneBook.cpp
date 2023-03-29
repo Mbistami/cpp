@@ -1,30 +1,56 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <iomanip>
 
 void PhoneBook::appendContact(Contact *newContact)
 {
 
+    std::cout << "defined contacts " + std::to_string(definedContacts) << std::endl;
     if (definedContacts <= 7)
-    {
-        contacts[definedContacts] = newContact;
-    }
+        contacts[definedContacts] = *newContact;
     else
     {
-        int oldest = 0;
-        time_t timeStamp = time(0);
-        char *currentTimeStamp = ctime(&timeStamp);
+        definedContacts = 0;
+        contacts[definedContacts] = *newContact;
+    }
+    definedContacts++;
+    std::cout << "new total defined " + std::to_string(definedContacts) << std::endl;
+}
 
-        for (int i = 0; i < 8; i++)
+void PrintTableHeader()
+{
+    std::cout << std::setw(10) << "index"
+              << "|"
+              << std::setw(10) << "first name"
+              << "|"
+              << std::setw(10) << "last name"
+              << "|"
+              << std::setw(10) << "nick name"
+              << "|"
+              << std::endl;
+}
+
+void PhoneBook::handleAction(std::string action)
+{
+
+    if (action == "ADD")
+    {
+        Contact *c = new Contact(1);
+        this->appendContact(c);
+    }
+    else if (action == "SEARCH")
+    {
+        int index;
+
+        PrintTableHeader();
+        for (size_t i = 0; i < this->definedContacts; i++)
         {
-            if (timeStamp > contacts[i].timeStamp)
-            {
-                timeStamp = contacts[i].timeStamp;
-                oldest = i;
-                i = 0;
-            }
+            this->contacts[i].DrowLine(i);
         }
-
-        contacts[oldest] = newContact;
+        std::cout << "select index $>";
+        std::cin >> index;
+        if (index <= 7)
+            this->contacts[index].PrintDetails();
     }
 }
 
@@ -33,6 +59,7 @@ PhoneBook::PhoneBook()
     time_t timeStamp = time(0);
     char *currentTimeStamp = ctime(&timeStamp);
     std::cout << "current timeStamp " << timeStamp << std::endl;
+    definedContacts = 0;
 }
 
 PhoneBook::~PhoneBook()

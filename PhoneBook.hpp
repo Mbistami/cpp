@@ -4,12 +4,13 @@
 class PhoneBook
 {
 private:
-    Contact *contacts[8];
     int definedContacts;
+    Contact contacts[8];
 
 public:
     PhoneBook(/* args */);
     ~PhoneBook();
     void appendContact(Contact *contact);
+    void handleAction(std::string action);
 };
 #endif
