@@ -7,15 +7,18 @@
 void PhoneBook::appendContact(Contact *newContact)
 {
 
-    std::cout << "defined contacts " << std::endl;
-    if (definedContacts <= 7)
-        contacts[definedContacts] = *newContact;
+    if (definedContacts < 7)
+    {
+        definitionCursor++;
+        definedContacts++;
+        contacts[definitionCursor] = *newContact;
+    }
     else
     {
-        definedContacts = 0;
-        contacts[definedContacts] = *newContact;
+        definitionCursor = 0;
+        contacts[definitionCursor] = *newContact;
     }
-    definedContacts++;
+    std::cout << "defined contacts " << definedContacts << std::endl;
 }
 
 void PrintTableHeader()
@@ -29,6 +32,7 @@ void PrintTableHeader()
               << std::setw(10) << "nick name"
               << "|" << std::ends
               << std::endl;
+    std::cout << std::string(44, '-') << std::endl;
 }
 
 void PhoneBook::handleAction(std::string action)
@@ -44,8 +48,9 @@ void PhoneBook::handleAction(std::string action)
         std::string index;
 
         PrintTableHeader();
-        for (size_t i = 0; i < (size_t)this->definedContacts; i++)
-            this->contacts[i].DrowLine(i);
+        for (size_t i = 0; i <= (size_t)this->definedContacts; i++)
+            if (this->contacts[i].isDefinedContact())
+                this->contacts[i].DrowLine(i);
 
         std::cout << "select index $>" << std::ends;
         std::getline(std::cin, index);
@@ -58,6 +63,7 @@ void PhoneBook::handleAction(std::string action)
 PhoneBook::PhoneBook()
 {
     definedContacts = 0;
+    definitionCursor = 0;
 }
 
 PhoneBook::~PhoneBook()

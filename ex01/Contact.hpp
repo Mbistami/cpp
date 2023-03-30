@@ -17,4 +17,5 @@ public:
     void DrowLine(size_t i);
     void PrintDetails();
     ~Contact(void);
+    bool isDefinedContact(void);
 };

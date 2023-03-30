@@ -7,6 +7,7 @@ class PhoneBook
 {
 private:
     int definedContacts;
+    int definitionCursor;
     Contact contacts[8];
 
 public:

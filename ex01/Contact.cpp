@@ -50,10 +50,10 @@ void Contact::PrintDetails()
     if (isDefined == true)
     {
         std::cout << "First Name: " << this->firstName << std::endl;
-        std::cout << "Last Name" << this->lastName << std::endl;
-        std::cout << "Nickname" << this->nickname << std::endl;
-        std::cout << "Phone Number" << this->phoneNumber << std::endl;
-        std::cout << "Darkest Secret" << this->darkestSecret << std::endl;
+        std::cout << "Last Name: " << this->lastName << std::endl;
+        std::cout << "Nickname: " << this->nickname << std::endl;
+        std::cout << "Phone Number: " << this->phoneNumber << std::endl;
+        std::cout << "Darkest Secret: " << this->darkestSecret << std::endl;
         return;
     }
     std::cout << "phonebook: selected user not defined yet!" << isDefined << std::endl;
@@ -61,15 +61,21 @@ void Contact::PrintDetails()
 
 void Contact::DrowLine(size_t i)
 {
-    std::cout << std::setw(10) << i << "|" << std::ends
-              << std::setw(10) << Truncate(this->firstName) << "|" << std::ends
-              << std::setw(10) << Truncate(this->lastName) << "|" << std::ends
-              << std::setw(10) << Truncate(this->nickname) << "|" << std::ends
-              << std::endl;
+    if (isDefined)
+        std::cout << std::setw(10) << i << "|" << std::ends
+                  << std::setw(10) << Truncate(this->firstName) << "|" << std::ends
+                  << std::setw(10) << Truncate(this->lastName) << "|" << std::ends
+                  << std::setw(10) << Truncate(this->nickname) << "|" << std::ends
+                  << std::endl;
 }
 
 Contact::~Contact(void)
 {
     std::cout << "Contact destructor called!" << std::endl;
     return;
+}
+
+bool Contact::isDefinedContact(void)
+{
+    return isDefined;
 }
