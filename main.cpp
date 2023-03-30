@@ -6,10 +6,10 @@ int main(void)
     PhoneBook pb = PhoneBook();
     std::string prompt;
 
-    while (1)
+    while (std::cout << "ADD | SEARCH | EXIT $>" << std::ends && std::getline(std::cin, prompt))
     {
-        std::cout << "ADD | SEARCH | EXIT $>";
-        std::cin >> prompt;
+        if (prompt == "EXIT")
+            break;
         pb.handleAction(prompt);
     }
 }

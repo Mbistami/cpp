@@ -1,6 +1,8 @@
 #include "Contact.hpp"
 #ifndef PHONE_BOOK_H
 #define PHONE_BOOK_H
+#define MAX_USERS 8
+
 class PhoneBook
 {
 private:

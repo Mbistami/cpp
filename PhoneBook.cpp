@@ -14,19 +14,18 @@ void PhoneBook::appendContact(Contact *newContact)
         contacts[definedContacts] = *newContact;
     }
     definedContacts++;
-    std::cout << "new total defined " + std::to_string(definedContacts) << std::endl;
 }
 
 void PrintTableHeader()
 {
     std::cout << std::setw(10) << "index"
-              << "|"
+              << "|" << std::ends
               << std::setw(10) << "first name"
-              << "|"
+              << "|" << std::ends
               << std::setw(10) << "last name"
-              << "|"
+              << "|" << std::ends
               << std::setw(10) << "nick name"
-              << "|"
+              << "|" << std::ends
               << std::endl;
 }
 
@@ -40,17 +39,29 @@ void PhoneBook::handleAction(std::string action)
     }
     else if (action == "SEARCH")
     {
-        int index;
+        std::string index;
+        std::size_t integerVal;
 
         PrintTableHeader();
         for (size_t i = 0; i < this->definedContacts; i++)
         {
             this->contacts[i].DrowLine(i);
         }
-        std::cout << "select index $>";
-        std::cin >> index;
-        if (index <= 7)
-            this->contacts[index].PrintDetails();
+
+        std::cout << "select index $>" << std::ends;
+        std::getline(std::cin, index);
+        try
+        {
+            std::stoi(index, &integerVal, 10);
+            if (integerVal >= 0 && integerVal <= 8)
+                return this->contacts[std::atoi(index.c_str())].PrintDetails();
+        }
+        catch (...)
+        {
+            std::cerr << index << ": invalid index!\nindex must be integer." << std::endl;
+            return;
+        }
+        std::cout << "user not found." << std::endl;
     }
 }
 
@@ -64,6 +75,6 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook()
 {
-    std::cout << "Phonebook Constructor" << std::endl;
+    std::cout << "See you soon!" << std::endl;
     definedContacts = 0;
 }

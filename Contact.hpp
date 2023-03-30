@@ -3,14 +3,15 @@
 
 class Contact
 {
-public:
+private:
     std::string firstName;
     std::string lastName;
     std::string nickname;
     std::string phoneNumber;
     std::string darkestSecret;
-    std::time_t timeStamp;
+    bool isDefined;
 
+public:
     Contact(void);
     Contact(int request);
     void DrowLine(size_t i);
