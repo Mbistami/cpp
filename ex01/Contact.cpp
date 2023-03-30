@@ -27,7 +27,7 @@ Contact::Contact(int request)
     phoneNumber = fn;
     std::getline(std::cin, fn);
     darkestSecret = fn;
-    std::cout << "Created new contact using" + request + firstName << std::endl;
+    std::cout << "Created new contact using" << request << firstName << std::endl;
     isDefined = true;
     std::cout << isDefined << std::endl;
 }
