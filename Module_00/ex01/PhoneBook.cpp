@@ -43,6 +43,7 @@ void PhoneBook::handleAction(std::string action)
     {
         Contact *c = new Contact(1);
         this->appendContact(c);
+        delete c;
     }
     else if (action == "SEARCH")
     {
