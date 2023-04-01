@@ -7,15 +7,16 @@
 void PhoneBook::appendContact(Contact *newContact)
 {
 
-    if (definedContacts < 7)
+    if (definedContacts < 7 || definitionCursor < definedContacts)
     {
         definitionCursor++;
-        definedContacts++;
+        if (definedContacts < 7)
+            definedContacts++;
         contacts[definitionCursor] = *newContact;
     }
     else
     {
-        definitionCursor = 0;
+        definitionCursor = 1;
         contacts[definitionCursor] = *newContact;
     }
     std::cout << "defined contacts " << definedContacts << std::endl;
