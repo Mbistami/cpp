@@ -14,7 +14,7 @@ int main(int ac, char **av)
     while (j != ac && av[j][i])
     {
         if (av[j][i] >= 'a' && av[j][i] <= 'z')
-            std::cout << (char)((char)av[j][i] - 32);
+            std::cout << (char)std::toupper((char)av[j][i]);
         else
             std::cout << (char)((char)av[j][i]);
         i++;
