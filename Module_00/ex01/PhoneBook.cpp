@@ -1,8 +1,4 @@
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <stdlib.h>
-#include <iomanip>
-#include <sstream>
 
 void PhoneBook::appendContact(Contact *newContact)
 {
@@ -41,7 +37,8 @@ void PhoneBook::handleAction(std::string action)
     if (action == "ADD")
     {
         Contact *c = new Contact(1);
-        this->appendContact(c);
+        if (!c->hasError())
+            this->appendContact(c);
         delete c;
     }
     else if (action == "SEARCH")

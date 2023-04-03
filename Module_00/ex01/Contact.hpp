@@ -10,6 +10,8 @@ private:
     std::string phoneNumber;
     std::string darkestSecret;
     bool isDefined;
+    bool error;
+    std::string readField(void);
 
 public:
     Contact(void);
@@ -18,4 +20,5 @@ public:
     void PrintDetails();
     ~Contact(void);
     bool isDefinedContact(void);
+    bool hasError(void);
 };

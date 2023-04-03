@@ -9,23 +9,32 @@ Contact::Contact(void)
     if (!isDefined)
     {
         isDefined = false;
+        error = false;
     }
     return;
 }
 
+std::string Contact::readField () {
+    std::string fn;
+    std::getline(std::cin, fn);
+    if (fn.length() == 0)
+        error = true;
+    return fn;
+}   
+
 Contact::Contact(int)
 {
     std::string fn;
-    std::getline(std::cin, fn);
-    firstName = fn;
-    std::getline(std::cin, fn);
-    lastName = fn;
-    std::getline(std::cin, fn);
-    nickname = fn;
-    std::getline(std::cin, fn);
-    phoneNumber = fn;
-    std::getline(std::cin, fn);
-    darkestSecret = fn;
+    firstName = readField();
+    lastName = readField();
+    nickname = readField();
+    phoneNumber = readField();
+    darkestSecret = readField();
+    if (error)
+    {
+        std::cout << "PhoneBook: empty fields not allowed" << std::endl;
+        return;
+    }
     std::cout << "Contact added"<< std::endl;
     isDefined = true;
     PrintDetails();
@@ -77,4 +86,9 @@ Contact::~Contact(void)
 bool Contact::isDefinedContact(void)
 {
     return isDefined;
+}
+
+bool Contact::hasError(void)
+{
+    return error;
 }
