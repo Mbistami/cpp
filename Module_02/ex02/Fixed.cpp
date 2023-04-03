@@ -98,7 +98,7 @@ bool Fixed::operator<(const Fixed &r) const
     return (res);
 }
 
-Fixed Fixed::operator*(const Fixed &f)
+Fixed Fixed::operator*(const Fixed &f) const
 {
     Fixed n(f);
     int scaleFactor = (1 << this->nbFractional);
@@ -108,7 +108,7 @@ Fixed Fixed::operator*(const Fixed &f)
     return (n);
 }
 
-Fixed Fixed::operator+(const Fixed &f)
+Fixed Fixed::operator+(const Fixed &f) const
 {
     Fixed n(f);
     n.setRawBits(f.getRawBits() + this->getRawBits());
@@ -116,7 +116,7 @@ Fixed Fixed::operator+(const Fixed &f)
     return (n);
 }
 
-Fixed Fixed::operator-(const Fixed &f)
+Fixed Fixed::operator-(const Fixed &f) const
 {
     Fixed n(f);
     n.setRawBits(f.getRawBits() - this->getRawBits());
@@ -124,7 +124,7 @@ Fixed Fixed::operator-(const Fixed &f)
     return (n);
 }
 
-Fixed Fixed::operator/(const Fixed &f)
+Fixed Fixed::operator/(const Fixed &f) const
 {
     int scaleFactor = (1 << this->nbFractional);
     Fixed n(f);
