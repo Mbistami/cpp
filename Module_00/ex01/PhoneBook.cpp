@@ -59,6 +59,8 @@ void PhoneBook::handleAction(std::string action)
             return this->contacts[atoi(index.c_str())].PrintDetails();
         std::cout << "user not found." << std::endl;
     }
+    else
+        std::cout << "PhoneBook: Unknow command '\e[1m" << action << "\e[0m' use [ADD | SEARCH | EXIT]" << std::endl;
 }
 
 PhoneBook::PhoneBook()
