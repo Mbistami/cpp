@@ -16,10 +16,8 @@ void handleFile(std::string filename, std::string s1, std::string s2)
     {
         while ((pos = line.find(s1, pos + 1)) != std::string::npos)
         {
-            std::cout << line << std::endl;
             line.erase(pos, s1.length());
-            line.insert(pos, s2);
-            std::cout << line << std::endl;
+            line.insert(pos, s2);   
         }
         outPut << line << std::endl;
     }
@@ -35,6 +33,5 @@ int main(int ac, char **av)
 
     handleFile(av[1], av[2], av[3]);
     std::cout << "String replacer: Successfully generated " << av[1] << ".replace" << std::endl;
-
     return (1);
 }

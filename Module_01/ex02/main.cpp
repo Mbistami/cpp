@@ -7,8 +7,8 @@ int main(void)
     std::string *stringPTR = &variable;
     std::string &stringREF = variable;
 
-    std::cout << &stringPTR << " " << &stringREF << " " << &variable << std::endl;
-    std::cout << stringPTR << " " << stringREF << " " << variable << std::endl;
+    std::cout << stringPTR << std::endl << &stringREF << std::endl << &variable << std::endl << std::endl;
+    std::cout << *stringPTR << std::endl << stringREF << std::endl << variable << std::endl;
 
     return (0);
 }
