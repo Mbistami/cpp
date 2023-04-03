@@ -10,5 +10,8 @@ all: $(NAME)
 re:
 	$(CC) $(SRC) $(FLAGS) $(NAME)
 
+fclean:
+	rm -rf $(NAME)
+
 $(NAME): $(SRC)
 		$(CC) $(SRC) $(FLAGS) $(NAME)

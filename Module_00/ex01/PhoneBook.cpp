@@ -19,21 +19,20 @@ void PhoneBook::appendContact(Contact *newContact)
         definitionCursor = 1;
         contacts[definitionCursor] = *newContact;
     }
-    std::cout << "defined contacts " << definedContacts << std::endl;
 }
 
 void PrintTableHeader()
 {
-    std::cout << std::setw(10) << "index"
+    std::cout <<"\033[1;31m"<< std::setw(10) << "index"
               << "|" << std::ends
               << std::setw(10) << "first name"
               << "|" << std::ends
               << std::setw(10) << "last name"
               << "|" << std::ends
               << std::setw(10) << "nick name"
-              << "|" << std::ends
+              << "|\033[0m" << std::ends
               << std::endl;
-    std::cout << std::string(44, '-') << std::endl;
+    
 }
 
 void PhoneBook::handleAction(std::string action)

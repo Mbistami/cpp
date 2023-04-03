@@ -8,5 +8,11 @@ all: $(NAME)
 re:
 	$(CC) $(NAME).cpp $(FLAGS) $(NAME)
 
+fclean:
+	rm -rf $(NAME)
+
+clean:
+	
+
 $(NAME): $(NAME).cpp
 		$(CC) $(NAME).cpp $(FLAGS) $(NAME)

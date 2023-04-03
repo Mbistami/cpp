@@ -8,13 +8,12 @@ Contact::Contact(void)
     std::cout << "Contact constructor called!" << std::endl;
     if (!isDefined)
     {
-        std::cout << "is defined set to false" << std::endl;
         isDefined = false;
     }
     return;
 }
 
-Contact::Contact(int request)
+Contact::Contact(int)
 {
     std::string fn;
     std::getline(std::cin, fn);
@@ -27,9 +26,9 @@ Contact::Contact(int request)
     phoneNumber = fn;
     std::getline(std::cin, fn);
     darkestSecret = fn;
-    std::cout << "Created new contact using" << request << firstName << std::endl;
+    std::cout << "Contact added"<< std::endl;
     isDefined = true;
-    std::cout << isDefined << std::endl;
+    PrintDetails();
 }
 
 std::string Truncate(std::string src)
@@ -56,7 +55,7 @@ void Contact::PrintDetails()
         std::cout << "Darkest Secret: " << this->darkestSecret << std::endl;
         return;
     }
-    std::cout << "phonebook: selected user not defined yet!" << isDefined << std::endl;
+    std::cout << "PhoneBook: selected contact not defined yet!" << std::endl;
 }
 
 void Contact::DrowLine(size_t i)
