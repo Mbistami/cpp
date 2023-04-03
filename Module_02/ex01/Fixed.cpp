@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed(/* args */)
+Fixed::Fixed()
 {
     std::cout << "Default constructer called" << std::endl;
     this->number = 0;
@@ -14,13 +14,11 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const Fixed &f)
 {
-    std::cout << "Copy constructer called" << std::endl;
     *this = f;
 }
 
 Fixed &Fixed::operator=(const Fixed &f)
 {
-    std::cout << "Copy asignement operator called" << std::endl;
     this->number = f.getRawBits();
     return (*this);
 }
