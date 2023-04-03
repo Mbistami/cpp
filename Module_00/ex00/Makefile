@@ -12,6 +12,7 @@ fclean:
 	rm -rf $(NAME)
 
 clean:
+	rm -rf $(NAME)
 	
 
 $(NAME): $(NAME).cpp

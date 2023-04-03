@@ -12,6 +12,9 @@ re:
 
 fclean:
 	rm -rf $(NAME)
+	
+clean:
+	rm -rf $(NAME)
 
 $(NAME): $(SRC)
 		$(CC) $(SRC) $(FLAGS) $(NAME)

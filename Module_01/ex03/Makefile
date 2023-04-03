@@ -11,5 +11,11 @@ all: $(NAME)
 re:
 	$(CC) $(SRC) $(FLAGS) $(NAME)
 
+clean:
+	rm -rf $(NAME)
+	
+fclean:
+	rm -rf $(NAME)
+
 $(NAME): $(SRC)
 		$(CC) $(SRC) $(FLAGS) $(NAME)
