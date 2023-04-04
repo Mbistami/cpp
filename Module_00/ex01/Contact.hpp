@@ -11,11 +11,11 @@ private:
     std::string darkestSecret;
     bool isDefined;
     bool error;
-    std::string readField(void);
+    std::string readField(std::string field);
 
 public:
     Contact(void);
-    Contact(int request);
+    Contact(int);
     void DrowLine(size_t i);
     void PrintDetails();
     ~Contact(void);

@@ -5,7 +5,6 @@
 
 Contact::Contact(void)
 {
-    std::cout << "Contact constructor called!" << std::endl;
     if (!isDefined)
     {
         isDefined = false;
@@ -14,42 +13,50 @@ Contact::Contact(void)
     return;
 }
 
-std::string Contact::readField () {
+std::string Contact::readField(std::string field)
+{
     std::string fn;
+    std::cout << field << ":" << std::ends;
     std::getline(std::cin, fn);
     if (fn.length() == 0)
+    {
         error = true;
+    }
     return fn;
-}   
+}
 
 Contact::Contact(int)
 {
     std::string fn;
-    firstName = readField();
-    lastName = readField();
-    nickname = readField();
-    phoneNumber = readField();
-    darkestSecret = readField();
+    error = false;
+    firstName = readField("First name");
+    lastName = readField("Last name");
+    nickname = readField("Nickname");
+    phoneNumber = readField("Phone number");
+    darkestSecret = readField("Darkest secret");
+    
     if (error)
     {
         std::cout << "PhoneBook: empty fields not allowed" << std::endl;
         return;
     }
-    std::cout << "Contact added"<< std::endl;
     isDefined = true;
     PrintDetails();
+    std::cout << "Contact added successfully!" << std::endl;
 }
 
 std::string Truncate(std::string src)
 {
     if (src.length() < 10)
         return src;
+
     char buffer[11];
     int len = src.copy(buffer, 9, 0);
 
     buffer[len] = '.';
     buffer[10] = '\0';
     std::string newString(buffer);
+
     return newString;
 }
 
@@ -79,8 +86,6 @@ void Contact::DrowLine(size_t i)
 
 Contact::~Contact(void)
 {
-    std::cout << "Contact destructor called!" << std::endl;
-    return;
 }
 
 bool Contact::isDefinedContact(void)

@@ -1,4 +1,4 @@
-NAME=main
+NAME=PhoneBookTOOL
 FLAGS=-Wall -Wextra -Werror -std=c++98 -o
 CC=c++
 SRC=Contact.cpp\
