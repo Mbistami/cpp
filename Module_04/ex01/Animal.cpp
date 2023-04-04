@@ -1,0 +1,30 @@
+#include "Animal.hpp"
+
+Animal::Animal()
+{
+}
+
+Animal::~Animal()
+{
+}
+
+void Animal::makeSound() const
+{
+    std::cout << "Animal making sound" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+    return (this->type);
+}
+
+Animal::Animal(Animal &a)
+{
+    *this = a;
+}
+
+Animal &Animal::operator=(Animal &a)
+{
+    this->type = a.getType();
+    return (*this);
+}
