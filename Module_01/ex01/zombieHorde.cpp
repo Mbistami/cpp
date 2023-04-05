@@ -9,7 +9,6 @@ Zombie *zombieHorde(int N, std::string name)
         for (int i = 0; i < N; i++)
         {
             z[i].setName("UnexpectedZombie!");
-            z[i].announce();
         }
         return z;
     }
@@ -18,7 +17,6 @@ Zombie *zombieHorde(int N, std::string name)
         for (int i = 0; i < N; i++)
         {
             z[i].setName(name.length() > 0 ? name : "defaultName");
-            z[i].announce();
         }
         return z;
     }
