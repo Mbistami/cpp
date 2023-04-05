@@ -13,7 +13,7 @@ Zombie::~Zombie()
 
 void Zombie::announce()
 {
-    if (this->name.length() > 0)
+    if (this->name.length() >= 0)
         std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 

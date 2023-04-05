@@ -2,8 +2,10 @@
 
 int main()
 {
-    Zombie *z = newZombie("Zombax");
+    Zombie *z = newZombie("name");
     z->announce();
-    randomChump("Zombix");
-    return (1);
+    randomChump("lame");
+    delete z;
+
+    return (0);
 }

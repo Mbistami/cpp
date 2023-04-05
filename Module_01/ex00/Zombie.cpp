@@ -8,10 +8,16 @@ Zombie::Zombie(std::string name)
 
 Zombie::~Zombie()
 {
-    std::cout << "~Zombie " << this->name << " died" << std::endl;
+    std::cout << "Destructer called" << this->name << " died" << std::endl;
 }
 
 void Zombie::announce()
 {
+    if (this->name.length() >= 0)
     std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+Zombie::Zombie()
+{
+    std::cout << "Default constructer called!" << std::endl;
 }

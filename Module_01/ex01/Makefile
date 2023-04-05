@@ -4,7 +4,8 @@ CC=c++
 SRC=main.cpp\
 	newZombie.cpp\
 	randomChump.cpp\
-	Zombie.cpp
+	Zombie.cpp\
+	ZombieHorde.cpp
 
 all: $(NAME)
 
