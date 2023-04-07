@@ -6,6 +6,7 @@ Cat::Cat()
     isAllocated = true;
     this->b = new Brain();
     std::cout << "CAT constructer called" << std::endl;
+
 }
 
 Cat::Cat(Cat &a)
@@ -19,7 +20,8 @@ Cat::~Cat()
 {
     if (isAllocated)
     delete this->b;
-    std::cout << "CAT destructer called" << std::endl;
+    std::cout << "CAT deconstructer called" << std::endl;
+
 }
 
 void Cat::makeSound() const
@@ -29,8 +31,6 @@ void Cat::makeSound() const
 
 Cat &Cat::operator=(Cat &a)
 {
-    std::cout << "CAT copy asignement called" << std::endl;
-
     delete this->b;
     this->b = new Brain(*a.b);
     this->type = a.getType();

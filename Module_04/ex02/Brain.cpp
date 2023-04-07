@@ -21,6 +21,7 @@ Brain::Brain(std::string type)
 Brain::Brain(Brain &s)
 {
     std::cout << "BRAIN copy constructer called" << std::endl;
+
     for (size_t i = 0; i < 100; i++)
     {
         this->ideas[i] = s.ideas[i];
@@ -29,12 +30,13 @@ Brain::Brain(Brain &s)
 
 Brain::~Brain()
 {
-    std::cout << "BRAIN destructer called" << std::endl;
+    
 }
 
 Brain &Brain::operator=(Brain &b)
 {
     std::cout << "BRAIN copy asignement operator called" << std::endl;
+
     for (int i = 0; i < 100; i++)
     {
         this->ideas[i] = b.ideas[i];

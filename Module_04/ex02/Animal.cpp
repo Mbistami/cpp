@@ -1,5 +1,6 @@
 #include "Animal.hpp"
 
+
 Animal::Animal()
 {
     std::cout << "ANIMAL constructer called" << std::endl;
@@ -12,6 +13,7 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
+    std::cout << "Animal making sound" << std::endl;
 }
 
 std::string Animal::getType() const
@@ -26,7 +28,6 @@ Animal::Animal(Animal &a)
 
 Animal &Animal::operator=(Animal &a)
 {
-    std::cout << "ANIMAL asignement operator called" << std::endl;
     this->type = a.getType();
     return (*this);
 }

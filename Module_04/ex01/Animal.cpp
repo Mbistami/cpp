@@ -2,15 +2,16 @@
 
 Animal::Animal()
 {
+    std::cout << "ANIMAL constructer called" << std::endl;
 }
 
 Animal::~Animal()
 {
+    std::cout << "ANIMAL destructor" << std::endl;
 }
 
 void Animal::makeSound() const
 {
-    std::cout << "Animal making sound" << std::endl;
 }
 
 std::string Animal::getType() const
