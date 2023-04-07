@@ -2,6 +2,7 @@
 
 Dog::Dog()
 {
+    std::cout << "DOG constructer called" <<std::endl;
     this->type = "Dog";
 }
 
@@ -12,6 +13,7 @@ Dog::Dog(Dog &c)
 
 Dog::~Dog()
 {
+    std::cout << "DOG destructer called" << std::endl;
 }
 
 void Dog::makeSound() const

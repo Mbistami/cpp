@@ -2,6 +2,7 @@
 
 Cat::Cat()
 {
+    std::cout << "CAT constructer called" << std::endl;
     this->type = "Cat";
 }
 
@@ -12,6 +13,7 @@ Cat::Cat(Cat &a)
 
 Cat::~Cat()
 {
+    std::cout << "CAT destructer called" << std::endl;
 }
 
 void Cat::makeSound() const
